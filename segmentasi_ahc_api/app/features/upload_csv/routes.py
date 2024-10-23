@@ -1,14 +1,26 @@
 import io
 from datetime import datetime
 
-from fastapi import APIRouter, UploadFile, File, HTTPException
+from fastapi import APIRouter, UploadFile, File, HTTPException, Request
+from fastapi.responses import HTMLResponse
 import pandas as pd
 
+from segmentasi_ahc_api.app.templates import TemplateDep
 from segmentasi_ahc_api.app.database import SessionDep
 from segmentasi_ahc_api.app.features.upload_csv.utils import get_or_create_customer, get_or_create_product
 from segmentasi_ahc_api.app.models.transactions import Transaction, TransactionItem
 
 upload_csv_router = APIRouter(prefix='/upload_csv', tags=['upload_csv'])
+
+
+@upload_csv_router.get("/", response_class=HTMLResponse)
+async def index(
+        request: Request,
+        template: TemplateDep
+):
+    return template.TemplateResponse(
+        request=request, name="upload_csv.html", context={"title": "Upload CSV"}
+    )
 
 
 @upload_csv_router.post("/")
