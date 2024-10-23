@@ -949,6 +949,10 @@ select {
   margin-top: 1rem;
 }
 
+.mt-auto {
+  margin-top: auto;
+}
+
 .block {
   display: block;
 }
@@ -1040,6 +1044,10 @@ select {
 
 .min-h-\[75rem\] {
   min-height: 75rem;
+}
+
+.min-h-\[40rem\] {
+  min-height: 40rem;
 }
 
 .\!w-2\.5 {
@@ -1341,6 +1349,11 @@ select {
 .bg-slate-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+}
+
+.bg-gray-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-50 {
